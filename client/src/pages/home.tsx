@@ -311,20 +311,33 @@ export default function Home() {
                 </Button>
               </div>
 
-              <Separator className="my-6" />
 
-              {/* Multilingual Capabilities Highlight */}
-              <div className="text-center animate-in fade-in slide-in-from-bottom-4 duration-500 delay-800">
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold vela-dark dark:text-white mb-2 flex items-center justify-center">
-                    <Globe className="w-5 h-5 mr-2 vela-blue" />
-                    Multilingual Support
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400">Our AI agent communicates fluently in multiple languages</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Multilingual Support Section */}
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400 mb-16">
+          <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300">
+            <CardContent className="p-8">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold vela-dark dark:text-white mb-3 flex items-center justify-center">
+                  <Globe className="w-6 h-6 mr-3 vela-blue" />
+                  Multilingual Support
+                </h3>
+                <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">Our AI agent communicates fluently in multiple languages</p>
+                
+                {/* Tunisian Dialect Highlight */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 mb-8 border border-blue-100 dark:border-blue-800">
+                  <div className="flex items-center justify-center mb-3">
+                    <span className="text-3xl mr-3">🇹🇳</span>
+                    <span className="font-bold text-xl text-blue-700 dark:text-blue-300">Specialized in Tunisian Dialect</span>
+                  </div>
+                  <p className="text-blue-600 dark:text-blue-400 font-medium">Complete support for all Arabic dialects and regional variations</p>
                 </div>
                 
-                {/* Language Flags */}
-                <div className="flex justify-center space-x-4 text-3xl">
+                {/* Language Grid */}
+                <div className="grid grid-cols-4 md:grid-cols-8 gap-6 max-w-4xl mx-auto">
                   {[
                     { flag: "🇺🇸", title: "English", name: "EN" },
                     { flag: "🇪🇸", title: "Spanish", name: "ES" },
@@ -338,11 +351,11 @@ export default function Home() {
                     <div 
                       key={lang.title}
                       title={lang.title} 
-                      className="flex flex-col items-center hover:scale-110 transition-transform duration-300 cursor-pointer animate-in fade-in duration-300 group"
-                      style={{ animationDelay: `${900 + index * 100}ms` }}
+                      className="flex flex-col items-center hover:scale-110 transition-transform duration-300 cursor-pointer animate-in fade-in duration-300 group bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm hover:shadow-md"
+                      style={{ animationDelay: `${600 + index * 100}ms` }}
                     >
-                      <span className="text-3xl mb-1 group-hover:animate-bounce">{lang.flag}</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{lang.name}</span>
+                      <span className="text-4xl mb-2 group-hover:animate-bounce">{lang.flag}</span>
+                      <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{lang.name}</span>
                     </div>
                   ))}
                 </div>
