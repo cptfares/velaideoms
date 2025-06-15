@@ -97,7 +97,7 @@ export default function Home() {
 
   const addLog = (message: string, type: LogEntry["type"]) => {
     const newLog: LogEntry = {
-      id: Date.now().toString(),
+      id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       timestamp: new Date().toLocaleTimeString(),
       message,
       type,
@@ -224,6 +224,18 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Demo Banner */}
+        <div className="animate-in fade-in slide-in-from-top-4 duration-500 mb-8">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl p-6 text-center shadow-lg">
+            <h2 className="text-2xl font-bold mb-2">🎯 Live AI Voice Agent Demo</h2>
+            <p className="text-blue-100 mb-4">Experience our multilingual AI voice technology in action</p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 inline-flex items-center space-x-2">
+              <Phone className="w-4 h-4" />
+              <span className="font-medium">Click "Start Call" below to begin your demo experience</span>
+            </div>
+          </div>
+        </div>
+
         {/* Demo Interface - Moved to Top */}
         <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200 mb-16">
           <Card className="shadow-2xl border-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm">
@@ -271,7 +283,7 @@ export default function Home() {
                   onClick={startCall}
                   disabled={callStatus === 'connected' || isLoading}
                   size="lg"
-                  className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 h-auto transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:transform-none animate-pulse"
+                  className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 h-auto transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:transform-none animate-pulse-slow"
                 >
                   {isLoading ? (
                     <>
@@ -312,23 +324,26 @@ export default function Home() {
                 </div>
                 
                 {/* Language Flags */}
-                <div className="flex justify-center space-x-6 text-2xl">
+                <div className="flex justify-center space-x-4 text-3xl">
                   {[
-                    { flag: "🇺🇸", title: "English" },
-                    { flag: "🇪🇸", title: "Spanish" },
-                    { flag: "🇫🇷", title: "French" },
-                    { flag: "🇩🇪", title: "German" },
-                    { flag: "🇨🇳", title: "Chinese" },
-                    { flag: "🇸🇦", title: "Arabic" }
+                    { flag: "🇺🇸", title: "English", name: "EN" },
+                    { flag: "🇪🇸", title: "Spanish", name: "ES" },
+                    { flag: "🇫🇷", title: "French", name: "FR" },
+                    { flag: "🇩🇪", title: "German", name: "DE" },
+                    { flag: "🇨🇳", title: "Chinese", name: "CN" },
+                    { flag: "🇸🇦", title: "Arabic", name: "AR" },
+                    { flag: "🇮🇹", title: "Italian", name: "IT" },
+                    { flag: "🇯🇵", title: "Japanese", name: "JP" }
                   ].map((lang, index) => (
-                    <span 
+                    <div 
                       key={lang.title}
                       title={lang.title} 
-                      className="hover:scale-125 transition-transform duration-300 cursor-pointer animate-in fade-in duration-300"
+                      className="flex flex-col items-center hover:scale-110 transition-transform duration-300 cursor-pointer animate-in fade-in duration-300 group"
                       style={{ animationDelay: `${900 + index * 100}ms` }}
                     >
-                      {lang.flag}
-                    </span>
+                      <span className="text-3xl mb-1 group-hover:animate-bounce">{lang.flag}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{lang.name}</span>
+                    </div>
                   ))}
                 </div>
               </div>
