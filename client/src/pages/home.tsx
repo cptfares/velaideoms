@@ -232,15 +232,52 @@ export default function Home() {
               AI Voice Agents
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
             Discover our cutting-edge multilingual AI voice agent. Engage in natural conversations 
             across multiple languages with advanced understanding and human-like responses.
           </p>
+          
+          {/* AI Agent Capabilities */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-1">Inbound Calls</div>
+              <div className="text-gray-600 dark:text-gray-400 text-xs">Handle incoming customer inquiries</div>
+            </div>
+            <div className="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-1">Outbound Calls</div>
+              <div className="text-gray-600 dark:text-gray-400 text-xs">Proactive customer outreach</div>
+            </div>
+            <div className="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-1">Customer Service</div>
+              <div className="text-gray-600 dark:text-gray-400 text-xs">24/7 support and assistance</div>
+            </div>
+            <div className="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-1">Lead Qualification</div>
+              <div className="text-gray-600 dark:text-gray-400 text-xs">Intelligent lead scoring and routing</div>
+            </div>
+          </div>
         </div>
 
         {/* Demo Interface */}
         <Card className="mb-12 shadow-xl">
           <CardContent className="p-8">
+            {/* Company Logo */}
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-lg mb-4">
+                <svg 
+                  viewBox="0 0 40 40" 
+                  className="w-10 h-10 text-white"
+                  fill="currentColor"
+                >
+                  <path d="M20 2L35 12v16L20 38 5 28V12L20 2z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <circle cx="20" cy="20" r="6" fill="currentColor"/>
+                  <path d="M14 16l6 4 6-4" stroke="white" strokeWidth="1.5" fill="none"/>
+                  <path d="M14 24l6-4 6 4" stroke="white" strokeWidth="1.5" fill="none"/>
+                </svg>
+              </div>
+              <div className="text-lg font-semibold text-gray-700 dark:text-gray-300">Client Company Demo</div>
+            </div>
+
             {/* Call Status Display */}
             <div className="text-center mb-8">
               <Badge 
