@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Phone, PhoneOff, Globe, Terminal, Trash2, Clock, CheckCircle, AlertCircle, Info, Loader2 } from "lucide-react";
+import { US, ES, FR, DE, CN, SA, IT, JP,TN } from 'country-flag-icons/react/3x2';
 
 interface LogEntry {
   id: string;
@@ -31,10 +32,7 @@ export default function Home() {
         const { default: Vapi } = await import('@vapi-ai/web');
         
         // Get API key from environment variables
-        const publicKey = import.meta.env.VITE_VAPI_PUBLIC_KEY || 
-                          import.meta.env.VITE_VAPI_KEY || 
-                          process.env.VAPI_PUBLIC_KEY || 
-                          "your-vapi-public-key";
+        const publicKey ="de4a2b2d-a16b-4ffb-8242-c2cd2e194862";
         
         vapiClientRef.current = new Vapi(publicKey);
         
@@ -133,10 +131,7 @@ export default function Home() {
 
     try {
       // Get assistant ID from environment variables
-      const assistantId = import.meta.env.VITE_VAPI_ASSISTANT_ID || 
-                          import.meta.env.VITE_ASSISTANT_ID || 
-                          process.env.VAPI_ASSISTANT_ID || 
-                          "your-assistant-id";
+      const assistantId = "d8dfe95e-a988-4c1c-b509-8d1880adba4e";
 
       await vapiClientRef.current.start(assistantId);
     } catch (error) {
@@ -204,13 +199,11 @@ export default function Home() {
           <div className="flex items-center justify-between">
             {/* Company Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center animate-in zoom-in duration-500 delay-200">
-                <span className="text-white font-bold text-lg">V</span>
-              </div>
-              <div className="animate-in slide-in-from-left-4 duration-500 delay-300">
-                <h1 className="text-2xl font-bold vela-dark dark:text-white">Vela AI</h1>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Multilingual Voice Intelligence</p>
-              </div>
+              <img
+                src="/vela.png"
+                alt="Vocalcom Logo"
+                className="w-40 h-auto object-contain animate-in zoom-in duration-500 delay-200"
+              />
             </div>
             
             {/* Status Indicator */}
@@ -227,7 +220,7 @@ export default function Home() {
         {/* Demo Banner */}
         <div className="animate-in fade-in slide-in-from-top-4 duration-500 mb-8">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl p-6 text-center shadow-lg">
-            <h2 className="text-2xl font-bold mb-2">🎯 Live AI Voice Agent Demo</h2>
+            <h2 className="text-2xl font-bold mb-2">Welcome to Vela AI</h2>
             <p className="text-blue-100 mb-4">Experience our multilingual AI voice technology in action</p>
             <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 inline-flex items-center space-x-2">
               <Phone className="w-4 h-4" />
@@ -242,19 +235,14 @@ export default function Home() {
             <CardContent className="p-8">
               {/* Company Logo */}
               <div className="text-center mb-6 animate-in fade-in zoom-in duration-500 delay-500">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-lg mb-4 hover:scale-105 transition-transform duration-300">
-                  <svg 
-                    viewBox="0 0 40 40" 
-                    className="w-10 h-10 text-white"
-                    fill="currentColor"
-                  >
-                    <path d="M20 2L35 12v16L20 38 5 28V12L20 2z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="20" cy="20" r="6" fill="currentColor"/>
-                    <path d="M14 16l6 4 6-4" stroke="white" strokeWidth="1.5" fill="none"/>
-                    <path d="M14 24l6-4 6 4" stroke="white" strokeWidth="1.5" fill="none"/>
-                  </svg>
+                <div className="inline-flex items-center justify-center mb-4 hover:scale-105 transition-transform duration-300">
+                <img
+                src="/logo-vocalcom.svg"
+                alt="Vocalcom Logo"
+                className="w-40 h-auto object-contain animate-in zoom-in duration-500 delay-200"
+              />
                 </div>
-                <div className="text-lg font-semibold text-gray-700 dark:text-gray-300">Client Company Demo</div>
+                <div className="text-lg font-semibold text-gray-700 dark:text-gray-300"></div>
               </div>
 
               {/* Call Status Display */}
@@ -330,23 +318,26 @@ export default function Home() {
                 {/* Tunisian Dialect Highlight */}
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 mb-8 border border-blue-100 dark:border-blue-800">
                   <div className="flex items-center justify-center mb-3">
-                    <span className="text-3xl mr-3">🇹🇳</span>
+                    <div className="w-12 h-9 mr-3">
+                      <TN className="w-full h-full object-cover rounded shadow-sm" />
+                    </div>
                     <span className="font-bold text-xl text-blue-700 dark:text-blue-300">Specialized in Tunisian Dialect</span>
                   </div>
                   <p className="text-blue-600 dark:text-blue-400 font-medium">Complete support for all Arabic dialects and regional variations</p>
                 </div>
                 
                 {/* Language Grid */}
-                <div className="grid grid-cols-4 md:grid-cols-8 gap-6 max-w-4xl mx-auto">
+                <div className="grid grid-cols-4 md:grid-cols-9 gap-6 max-w-4xl mx-auto">
                   {[
-                    { flag: "🇺🇸", title: "English", name: "EN" },
-                    { flag: "🇪🇸", title: "Spanish", name: "ES" },
-                    { flag: "🇫🇷", title: "French", name: "FR" },
-                    { flag: "🇩🇪", title: "German", name: "DE" },
-                    { flag: "🇨🇳", title: "Chinese", name: "CN" },
-                    { flag: "🇸🇦", title: "Arabic", name: "AR" },
-                    { flag: "🇮🇹", title: "Italian", name: "IT" },
-                    { flag: "🇯🇵", title: "Japanese", name: "JP" }
+                    { Flag: US, title: "English", name: "EN" },
+                    { Flag: ES, title: "Spanish", name: "ES" },
+                    { Flag: FR, title: "French", name: "FR" },
+                    { Flag: DE, title: "German", name: "DE" },
+                    { Flag: CN, title: "Chinese", name: "CN" },
+                    { Flag: SA, title: "Arabic", name: "AR" },
+                    { Flag: IT, title: "Italian", name: "IT" },
+                    { Flag: JP, title: "Japanese", name: "JP" },
+                    { Flag: TN, title: "Tunisian", name: "TN" }
                   ].map((lang, index) => (
                     <div 
                       key={lang.title}
@@ -354,8 +345,10 @@ export default function Home() {
                       className="flex flex-col items-center hover:scale-110 transition-transform duration-300 cursor-pointer animate-in fade-in duration-300 group bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm hover:shadow-md"
                       style={{ animationDelay: `${600 + index * 100}ms` }}
                     >
-                      <span className="text-4xl mb-2 group-hover:animate-bounce">{lang.flag}</span>
-                      <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{lang.name}</span>
+                      <div className="w-16 h-12 mb-3 group-hover:animate-bounce">
+                        <lang.Flag className="w-full h-full object-cover rounded shadow-sm" />
+                      </div>
+                      <span className="text-base font-bold text-gray-700 dark:text-gray-300">{lang.name}</span>
                     </div>
                   ))}
                 </div>
@@ -464,6 +457,15 @@ export default function Home() {
                 <Globe className="w-4 h-4 mr-2" />
                 <span>www.velaagencies.com</span>
               </a>
+              <a 
+                href="mailto:contact@velaagencies.com"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                <Globe className="w-4 h-4 mr-2" />
+                <span>contact@velaagencies.com</span>
+              </a>
               <div className="flex items-center space-x-4">
                 <a 
                   href="tel:+15715239063" 
@@ -494,7 +496,7 @@ export default function Home() {
               </a>
             </div>
             <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <p className="text-sm text-gray-500 dark:text-gray-400">© 2024 Vela AI. Powered by advanced voice intelligence technology.</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">© 2025 Vela AI. Powered by advanced voice intelligence technology.</p>
             </div>
           </div>
         </div>
