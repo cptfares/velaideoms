@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(224, 71.4%, 4.1%);
+  --muted: hsl(220, 14.3%, 95.9%);
+  --muted-foreground: hsl(220, 8.9%, 46.1%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(224, 71.4%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(224, 71.4%, 4.1%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(220, 14.3%, 95.9%);
+  --secondary-foreground: hsl(220, 9%, 9%);
+  --accent: hsl(220, 14.3%, 95.9%);
+  --accent-foreground: hsl(220, 9%, 9%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(224, 71.4%, 4.1%);
+  --radius: 0.75rem;
+  
+  /* Vela AI Custom Colors */
+  --vela-blue: hsl(221, 83%, 53%);
+  --vela-dark: hsl(215, 25%, 27%);
+  --vela-success: hsl(142, 76%, 36%);
+  --vela-error: hsl(0, 84%, 60%);
+  --vela-gradient-from: hsl(210, 40%, 98%);
+  --vela-gradient-to: hsl(214, 100%, 97%);
+}
+
+.dark {
+  --background: hsl(224, 71.4%, 4.1%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(223, 47%, 11%);
+  --muted-foreground: hsl(215, 13.8%, 34.1%);
+  --popover: hsl(224, 71.4%, 4.1%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(224, 71.4%, 4.1%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(215, 27.9%, 16.9%);
+  --input: hsl(215, 27.9%, 16.9%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(215, 27.9%, 16.9%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(215, 27.9%, 16.9%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(216, 12.2%, 83.9%);
+  
+  /* Dark mode Vela colors */
+  --vela-gradient-from: hsl(224, 71.4%, 4.1%);
+  --vela-gradient-to: hsl(221, 39%, 11%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-950 font-['Inter'] antialiased;
+  }
+}
+
+@layer utilities {
+  .vela-gradient {
+    background: linear-gradient(135deg, var(--vela-gradient-from) 0%, var(--vela-gradient-to) 100%);
+  }
+  
+  .vela-blue {
+    color: hsl(221, 83%, 53%);
+  }
+  
+  .vela-dark {
+    color: hsl(215, 25%, 27%);
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
