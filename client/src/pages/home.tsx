@@ -32,7 +32,7 @@ export default function Home() {
         const { default: Vapi } = await import('@vapi-ai/web');
         
         // Get API key from environment variables
-        const publicKey ="de4a2b2d-a16b-4ffb-8242-c2cd2e194862";
+        const publicKey ="b41907e9-e09e-400d-96e8-221af9de85e1";
         
         vapiClientRef.current = new Vapi(publicKey);
         
@@ -131,7 +131,7 @@ export default function Home() {
 
     try {
       // Get assistant ID from environment variables
-      const assistantId = "d8dfe95e-a988-4c1c-b509-8d1880adba4e";
+      const assistantId = "c0509670-4479-41f1-b9a3-b65ec464161a";
 
       await vapiClientRef.current.start(assistantId);
     } catch (error) {
